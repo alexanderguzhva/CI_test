@@ -1,0 +1,1 @@
+docker run --name=teamcity --net=internal -d -v /srv/docker/teamcity:/var/lib/teamcity -p 8111:8111 sjoerdmulder/teamcity:latest
