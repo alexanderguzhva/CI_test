@@ -1,0 +1,31 @@
+docker run --name gitlab \
+    -d \
+    --net=internal \
+    --publish 20022:22 --publish 20080:80 \
+    --env 'GITLAB_PORT=20080' --env 'GITLAB_SSH_PORT=20022' \
+    --env 'GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alpha-numeric-string' \
+    --env 'SMTP_ENABLED=true' \
+    --env 'SMTP_DOMAIN=linux.local' \
+    --env 'SMTP_HOST=mail.internal' \
+    --env 'SMTP_PORT=25' \
+    --env 'SMTP_USER=gitlab_mailer@linux.local' \
+    --env 'SMTP_PASS=mailerpassword' \
+    --env 'SMTP_STARTTLS=false' \
+    --env 'SMTP_AUTHENTICATION=CRAM_MD5' \
+    --env 'IMAP_ENABLED=true' \
+    --env 'IMAP_HOST=mail.internal' \
+    --env 'IMAP_PORT=143' \
+    --env 'IMAP_USER=gitlab_mailer@linux.local' \
+    --env 'IMAP_PASS=mailerpassword' \
+    --env 'IMAP_SSL=false' \
+    --env 'IMAP_STARTTLS=false' \
+    --env 'REDIS_HOST=redis.internal' \
+    --env 'REDIS_PORT=6379' \
+    --env 'DB_TYPE=postgres' \
+    --env 'DB_NAME=gitlabhq_production' \
+    --env 'DB_USER=someuser' \
+    --env 'DB_PASS=somepassword' \
+    --env 'DB_HOST=postgresql.internal' \
+    --env 'DB_PORT=5432' \
+    --volume /srv/docker/gitlab/gitlab:/home/git/data \
+    sameersbn/gitlab:latest

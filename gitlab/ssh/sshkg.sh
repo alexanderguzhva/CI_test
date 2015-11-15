@@ -1,0 +1,1 @@
+ssh-keygen -t rsa -C "username@linux.local" -f ~/.ssh/gitlab_id_rsa
