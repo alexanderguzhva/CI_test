@@ -138,6 +138,7 @@ docker start mail
 docker start redis
 docker start postgresql
 docker start gitlab
+docker start teamcity
 ```
 
 
