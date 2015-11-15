@@ -1,5 +1,16 @@
 # CI_test
 
+## Docker
+Use docker 1.9
+
+Create a network with name 'internal': 
+```bash
+docker network create internal
+```
+
+So, let all containers to be run within this 'internal' docker network
+
+
 ## Mail server
 Dockerfile from tvial/docker-mailserver repo ([github](https://github.com/tomav/docker-mailserver))
 
