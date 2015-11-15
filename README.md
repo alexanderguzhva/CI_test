@@ -39,7 +39,7 @@ Please note that [script](redis/runme.sh) does not contains publishing ports opt
 
 
 ## PostgreSQL
-Dockerfile from sameersbn/postgresql:9.4-7 ([github]https://github.com/sameersbn/docker-postgresql))
+Dockerfile from sameersbn/postgresql:9.4-7 ([github](https://github.com/sameersbn/docker-postgresql))
 
 [Script](postgresql/runme.sh) for setting up the docker image called 'postgresql'.
 
