@@ -73,10 +73,7 @@ Host gitlab
 
 In order to work with Intellij IDEA I had to go to Menu/File/Settings/Version Control/Git and set 'SSH executable' to 'native'. This is because Intellij IDEA uses ~/.ssh/id_rsa file for git. If a keyfile with a non-standard name is used, then a 'native' option should be used instead of 'built-in'.
 
-## Set up mail client
-Email is something like 'username@linux.local', both SMTP and IMAP servers point to 'localhost'.
-
-## Set up gitlab
+### Set up gitlab
 - Go to HTTP, sign up, get an email on 'username@linux.local', activate.
 - Add SSH keys (basically, copy and paste generated the whole test in ~/.ssh/gitlab_id_rsa.pub as a new SSH key in gitlab's UI in User Profile settings)
 
@@ -95,6 +92,45 @@ Check authorized SSH keys:
 ```bash
 cat /home/git/.ssh/authorized_keys
 ```
+
+
+## Teamcity
+Docker image from sjoerdmulder/teamcity:latest ([github](https://github.com/sjoerdmulder/teamcity-docker))
+
+[Script](teamcity/runme.sh) for setting up docker image called 'teamcity'. But the postgresql database should be set up before setting up teamcity
+
+Container's files are stored in /srv/docker/teamcity/ on a host machine.
+
+### Set up postgresql database
+Execute within the 'postgresql' container:
+```bash
+docker exec -it -u postgres postgresql psql
+```
+
+Run in psql:
+```
+create role teamcity with login password 'teamcity';
+```
+
+Run in psql:
+```
+create role teamcity with login password 'teamcity';
+```
+
+Quit from psql:
+```
+\q
+```
+
+
+
+
+
+## Set up a mail client (like the Mozilla Thunderbird)
+Email is something like 'username@linux.local', both SMTP and IMAP servers point to 'localhost'.
+
+
+
 
 ## Start containers
 ```
